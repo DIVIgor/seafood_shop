@@ -1,0 +1,12 @@
+venv/
+.vscode/
+venv/
+__pycache__/
+staticfiles/
+*.log
+*.pot
+*.pyc
+*.env
+*.sqlite3
+*.bak
+media
