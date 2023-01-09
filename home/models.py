@@ -8,7 +8,7 @@ from wagtail import blocks
 
 
 class HomePage(Page):
-    parent_page_types = []
+    # parent_page_types = ['root']
     max_count = 1
 
     intro = StreamField([
@@ -17,8 +17,8 @@ class HomePage(Page):
             ('upper_heading', blocks.CharBlock()),
             ('lower_heading', blocks.CharBlock()),
             ('text', blocks.TextBlock()),
-            ('button_text', blocks.CharBlock()),
-            ('button_url', blocks.URLBlock()),
+            ('button_text', blocks.CharBlock(required=False)),
+            ('button_redirection', blocks.PageChooserBlock(required=False)),
         ], icon='home')),
     ], block_counts={
     'intro': {'max_num': 1},

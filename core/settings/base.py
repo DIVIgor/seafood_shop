@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     "home",
     "products",
     "search",
+    "snippets",
 
     "wagtailmenus",
 
