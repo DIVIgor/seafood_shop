@@ -1,17 +1,57 @@
 {% extends "base.html" %}
-{% load static %}
+{% load static wagtailcore_tags wagtailimages_tags %}
 
-{% block body_class %}template-homepage{% endblock %}
+{% comment %} {% block body_class %}template-homepage{% endblock %} {% endcomment %}
 
 {% block extra_css %}
-
-{% comment %}
-Delete the line below if you're just getting started and want to remove the welcome screen!
-{% endcomment %}
-<link rel="stylesheet" href="{% static 'css/welcome_page.css' %}">
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
 {% endblock extra_css %}
 
 {% block content %}
-
-
+{% if page.intro %}
+    <section class="page-section clearfix">
+        <div class="container">
+            <div class="intro">
+                {% for block in page.intro %}
+                    {% if block.block_type == 'intro' %}
+                        {% image block.value.image original class="intro-img img-fluid mb-3 mb-lg-0 rounded" %}
+                        <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+                            <h2 class="section-heading mb-4">
+                                <span class="section-heading-upper">{{ block.value.upper_heading }}</span>
+                                <span class="section-heading-lower">{{ block.value.lower_heading }}</span>
+                            </h2>
+                            <p class="mb-3">{{ block.value.text }}</p>
+                            <div class="intro-button mx-auto">
+                                <a class="btn btn-primary btn-xl" href="{{ block.value.button_url }}">
+                                    {{ block.value.button_text }}
+                                </a>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endif %}
+{% if page.message %}
+    <section class="page-section cta">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-9 mx-auto">
+                    <div class="cta-inner bg-faded text-center rounded">
+                        {% for block in page.message %}
+                            {% if block.block_type == 'message' %}
+                                <h2 class="section-heading mb-4">
+                                    <span class="section-heading-upper">{{ block.value.upper_heading }}</span>
+                                    <span class="section-heading-lower">{{ block.value.lower_heading }}</span>
+                                </h2>
+                                <p class="mb-0">{{ block.value.text }}</p>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endif %}
 {% endblock content %}

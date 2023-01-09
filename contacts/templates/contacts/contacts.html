@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% load static wagtailcore_tags wagtailimages_tags %}
+
+{% comment %} {% block body_class %}template-homepage{% endblock %} {% endcomment %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+{% endblock extra_css %}
+
+{% block content %}
+    {% for block in page.contact_info %}
+        {% if block.block_type == 'info' %}
+            <section class="page-section cta">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-9 mx-auto">
+                            <div class="cta-inner bg-faded text-center rounded">
+                                {% for section in block.value %}
+                                    {% if section.block_type == 'headers' %}
+                                        <h2 class="section-heading mb-5">
+                                            <span class="section-heading-upper">{{ section.value.upper_heading }}</span>
+                                            <span class="section-heading-lower">{{ section.value.lower_heading }}</span>
+                                        </h2>
+                                    {% endif %}
+                                    {% if section.block_type == 'schedule' %}
+                                        <ul class="list-unstyled list-hours mb-5 text-left mx-auto">
+                                            {% for string in section.value %}
+                                                <li class="list-unstyled-item list-hours-item d-flex">
+                                                    {{ string.value.day }}
+                                                    <span class="ms-auto">
+                                                        {% if string.value.worktime_from and string.value.worktime_to %}
+                                                            {{ string.value.worktime_from }} to {{ string.value.worktime_to }}
+                                                        {% else %}
+                                                            Closed
+                                                        {% endif %}
+                                                    </span>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    {% endif %}
+                                    {% if section.block_type == 'address' %}
+                                        <p class="address mb-5">
+                                            <em>
+                                                <strong>{{ section.value.address_upper }}</strong>
+                                                <br />
+                                                {{ section.value.address_lower }}
+                                            </em>
+                                        </p>
+                                    {% endif %}
+                                    {% if section.block_type == 'contacts' %}
+                                        <p class="mb-0">
+                                            <small><em>{{ section.value.short_message }}</em></small>
+                                            {% if section.value.phone %}
+                                                <br />
+                                                {{ section.value.phone }}
+                                            {% endif %}
+                                            {% comment %} (317) 585-8468 {% endcomment %}
+                                            {% if section.value.email %}
+                                                <br>
+                                                {{ section.value.email }}
+                                            {% endif %}
+                                        </p>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        {% endif %}
+    {% endfor %}
+
+    {% block extra_js %}
+        <!-- Core theme JS-->
+        <script type="text/javascript" src="{% static 'js/scripts.js' %}"></script>
+    {% endblock extra_js %}
+{% endblock content %}

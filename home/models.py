@@ -8,30 +8,41 @@ from wagtail import blocks
 
 
 class HomePage(Page):
+    parent_page_types = []
+    max_count = 1
+
     intro = StreamField([
-        ('image', ImageChooserBlock()),
-        ('upper_heading', blocks.CharBlock()),
-        ('lower_heading', blocks.CharBlock()),
-        ('text', blocks.RichTextBlock()),
-        ('button_text', blocks.CharBlock()),
-        ('button_url', blocks.URLBlock()),
+        ('intro', blocks.StructBlock([
+            ('image', ImageChooserBlock(template='blocks/home_img.html',)),
+            ('upper_heading', blocks.CharBlock()),
+            ('lower_heading', blocks.CharBlock()),
+            ('text', blocks.TextBlock()),
+            ('button_text', blocks.CharBlock()),
+            ('button_url', blocks.URLBlock()),
+        ], icon='home')),
     ], block_counts={
-    'image': {'max_num': 1},
-    'upper_heading': {'max_num': 1},
-    'lower_heading': {'max_num': 1},
-    'text': {'max_num': 1},
-    'button_text': {'max_num': 1},
-    'button_url': {'max_num': 1},
+    'intro': {'max_num': 1},
+    # 'upper_heading': {'max_num': 1},
+    # 'lower_heading': {'max_num': 1},
+    # 'text': {'max_num': 1},
+    # 'button_text': {'max_num': 1},
+    # 'button_url': {'max_num': 1},
     }, blank=True)
 
     message = StreamField([
-        ('upper_heading', blocks.CharBlock()),
-        ('lower_heading', blocks.CharBlock()),
-        ('text', blocks.RichTextBlock()),
+        ('message', blocks.StructBlock([
+            ('upper_heading', blocks.CharBlock()),
+            ('lower_heading', blocks.CharBlock()),
+            ('text', blocks.RichTextBlock(
+                features=[
+                    'bold', 'italic', 'ol', 'ul'
+                ]
+            )),
+        ], icon='comment'))
     ], block_counts={
-    'upper_heading': {'max_num': 1},
-    'lower_heading': {'max_num': 1},
-    'text': {'max_num': 1},
+    'message': {'max_num': 1},
+    # 'lower_heading': {'max_num': 1},
+    # 'text': {'max_num': 1},
     }, blank=True)
 
     content_panels = Page.content_panels + [

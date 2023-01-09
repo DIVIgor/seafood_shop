@@ -6,16 +6,24 @@ from wagtail import blocks
 
 
 class About(Page):
+    parent_page_types = ['home.HomePage']
+
     info = StreamField([
-        ('image', ImageChooserBlock()),
-        ('upper_heading', blocks.CharBlock()),
-        ('lower_heading', blocks.CharBlock()),
-        ('text', blocks.RichTextBlock()),
+        ('info', blocks.StructBlock([
+            ('image', ImageChooserBlock()),
+            ('upper_heading', blocks.CharBlock()),
+            ('lower_heading', blocks.CharBlock()),
+            ('text', blocks.RichTextBlock(
+                features=[
+                    'bold', 'italic', 'ol', 'ul'
+                ]
+            )),
+        ], icon='clipboard-list')),
     ], block_counts={
-    'image': {'max_num': 1},
-    'upper_heading': {'max_num': 1},
-    'lower_heading': {'max_num': 1},
-    'text': {'max_num': 1},
+        'info': {'max_num': 1},
+    # 'upper_heading': {'max_num': 1},
+    # 'lower_heading': {'max_num': 1},
+    # 'text': {'max_num': 5},
     }, blank=True)
 
     content_panels = Page.content_panels + [
