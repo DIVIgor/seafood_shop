@@ -2582,10 +2582,10 @@ textarea.form-control-lg {
   outline: 0;
 }
 .form-range:focus::-webkit-slider-thumb {
-  box-shadow: 0 0 0 1px #fff, 0 0 0 0.25rem rgba(230, 167, 86, 0.25);
+  box-shadow: 0 0 0 1px #fff, 0 0 0 0.25rem rgba(86, 189, 230, 0.25);
 }
 .form-range:focus::-moz-range-thumb {
-  box-shadow: 0 0 0 1px #fff, 0 0 0 0.25rem rgba(230, 167, 86, 0.25);
+  box-shadow: 0 0 0 1px #fff, 0 0 0 0.25rem rgba(86, 189, 230, 0.25);
 }
 .form-range::-moz-focus-outer {
   border: 0;
@@ -2609,7 +2609,7 @@ textarea.form-control-lg {
   }
 }
 .form-range::-webkit-slider-thumb:active {
-  background-color: #f8e5cc;
+  background-color: #cceaf8;
 }
 .form-range::-webkit-slider-runnable-track {
   width: 100%;
@@ -2638,7 +2638,7 @@ textarea.form-control-lg {
   }
 }
 .form-range::-moz-range-thumb:active {
-  background-color: #f8e5cc;
+  background-color: #cceaf8;
 }
 .form-range::-moz-range-track {
   width: 100%;
@@ -4936,7 +4936,7 @@ textarea.form-control-lg {
 .alert-primary {
   color: #8a6434;
   background-color: #faeddd;
-  border-color: #f8e5cc;
+  border-color: #cceaf8;
 }
 .alert-primary .alert-link {
   color: #6e502a;
@@ -11289,7 +11289,7 @@ textarea.form-control-lg {
   }
 }
 body {
-  background-image: linear-gradient(rgba(15, 47, 43, 0.65), rgba(15, 20, 47, 0.65)), url("../assets/img/bg.jpg");
+  /* background-image: linear-gradient(rgba(15, 47, 43, 0.65), rgba(15, 20, 47, 0.65)), url("../assets/img/bg.jpg"); */
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
