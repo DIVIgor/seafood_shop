@@ -6,6 +6,7 @@ from wagtail import blocks
 
 
 class About(Page):
+    max_count = 1
     parent_page_types = ['home.HomePage']
 
     info = StreamField([
@@ -14,17 +15,10 @@ class About(Page):
             ('upper_heading', blocks.CharBlock()),
             ('lower_heading', blocks.CharBlock()),
             ('text', blocks.RichTextBlock(
-                features=[
-                    'bold', 'italic', 'ol', 'ul'
-                ]
+                features=['bold', 'italic', 'ol', 'ul'],
             )),
         ], icon='clipboard-list')),
-    ], block_counts={
-        'info': {'max_num': 1},
-    # 'upper_heading': {'max_num': 1},
-    # 'lower_heading': {'max_num': 1},
-    # 'text': {'max_num': 5},
-    }, blank=True)
+    ], block_counts={'info': {'max_num': 1},}, blank=True)
 
     content_panels = Page.content_panels + [
         StreamFieldPanel('info'),

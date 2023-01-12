@@ -1,5 +1,3 @@
-from django.db import models
-
 from wagtail.models import Page
 from wagtail.fields import StreamField
 from wagtail.admin.panels import StreamFieldPanel
@@ -8,7 +6,6 @@ from wagtail import blocks
 
 
 class HomePage(Page):
-    # parent_page_types = ['root']
     max_count = 1
 
     intro = StreamField([
@@ -21,12 +18,7 @@ class HomePage(Page):
             ('button_redirection', blocks.PageChooserBlock(required=False)),
         ], icon='home')),
     ], block_counts={
-    'intro': {'max_num': 1},
-    # 'upper_heading': {'max_num': 1},
-    # 'lower_heading': {'max_num': 1},
-    # 'text': {'max_num': 1},
-    # 'button_text': {'max_num': 1},
-    # 'button_url': {'max_num': 1},
+        'intro': {'max_num': 1},
     }, blank=True)
 
     message = StreamField([
@@ -41,8 +33,6 @@ class HomePage(Page):
         ], icon='comment'))
     ], block_counts={
     'message': {'max_num': 1},
-    # 'lower_heading': {'max_num': 1},
-    # 'text': {'max_num': 1},
     }, blank=True)
 
     content_panels = Page.content_panels + [

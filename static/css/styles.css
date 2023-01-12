@@ -11354,7 +11354,7 @@ p {
 }
 
 #mainNav {
-  background-color: rgba(15, 25, 47, 0.9);
+  background-color: rgba(15, 30, 47, 0.9);
   font-family: "Raleway", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 #mainNav .navbar-brand {
@@ -11398,7 +11398,7 @@ p {
 .cta {
   padding-top: 5rem;
   padding-bottom: 5rem;
-  background-color: #0441b5ad;
+  background-color: #c5d9ffad;
 }
 .cta .cta-inner {
   position: relative;
@@ -11418,7 +11418,7 @@ p {
 }
 
 .footer {
-  background-color: rgba(15, 25, 47, 0.9);
+  background-color: rgba(15, 30, 47, 0.9);
 }
 
 .intro {
@@ -11478,7 +11478,7 @@ p {
 }
 .list-hours .list-hours-item.today {
   font-weight: bold;
-  color: #5690e6;
+  color: #1f5482;
 }
 @media (min-width: 992px) {
   .list-hours {

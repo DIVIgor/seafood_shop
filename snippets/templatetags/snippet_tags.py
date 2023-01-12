@@ -1,6 +1,6 @@
 from django import template
 
-from snippets.models import Footer, Header, NavbarTitle, BackgroundImage
+from snippets.models import Footer, Header, NavbarTitle, BackgroundImage, Favicon
 
 
 register = template.Library()
@@ -32,3 +32,7 @@ def footer(context):
         'footer': Footer.objects.all(),
         'request': context['request'],
     }
+
+@register.simple_tag()
+def favicon():
+    return Favicon.objects.first()

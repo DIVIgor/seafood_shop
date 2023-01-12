@@ -6,6 +6,7 @@ from wagtail import blocks
 
 
 class Products(Page):
+    max_count = 1
     parent_page_types = ['home.HomePage']
 
     product = StreamField([
@@ -15,12 +16,7 @@ class Products(Page):
             ('lower_heading', blocks.CharBlock()),
             ('text', blocks.TextBlock()),
         ], icon='image'))
-    ], block_counts={
-    # 'image': {'max_num': 1},
-    # 'upper_heading': {'max_num': 1},
-    # 'lower_heading': {'max_num': 1},
-    # 'text': {'max_num': 1},
-    }, blank=True)
+    ], blank=True)
 
     content_panels = Page.content_panels + [
         StreamFieldPanel('product'),

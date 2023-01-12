@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static wagtailcore_tags wagtailimages_tags %}
 
-{% comment %} {% block body_class %}template-homepage{% endblock %} {% endcomment %}
+{% block body_class %}{% endblock %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/styles.css' %}">
@@ -49,14 +49,23 @@
                                     {% endif %}
                                     {% if section.block_type == 'contacts' %}
                                         <p class="mb-0">
-                                            <small><em>{{ section.value.short_message }}</em></small>
-                                            {% if section.value.phone %}
+                                            {% if section.value.short_message %}
+                                                <small><em>{{ section.value.short_message }}</em></small>
                                                 <br />
-                                                {{ section.value.phone }}
                                             {% endif %}
-                                            {% comment %} (317) 585-8468 {% endcomment %}
-                                            {% if section.value.email %}
+                                            {% if section.value.phone %}
+                                                {% if section.value.phone|length == 10 %}
+                                                    ({{ section.value.phone|slice:":3" }}) {{ section.value.phone|slice:"3:6" }}-{{ section.value.phone|slice:"6:" }}
+                                                {% elif section.value.phone|length == 11 %}
+                                                    +{{ section.value.phone|slice:":1" }} ({{ section.value.phone|slice:"1:4" }}) {{ section.value.phone|slice:"4:7" }}-{{ section.value.phone|slice:"7:" }}
+                                                {% elif section.value.phone|length == 12 %}
+                                                    +{{ section.value.phone|slice:":2" }} ({{ section.value.phone|slice:"2:5" }}) {{ section.value.phone|slice:"5:8" }}-{{ section.value.phone|slice:"8:" }}
+                                                {% elif section.value.phone|length == 13 %}
+                                                    +{{ section.value.phone|slice:":3" }} ({{ section.value.phone|slice:"3:6" }}) {{ section.value.phone|slice:"6:9" }}-{{ section.value.phone|slice:"9:" }}
+                                                {% endif %}
                                                 <br>
+                                            {% endif %}
+                                            {% if section.value.email %}
                                                 {{ section.value.email }}
                                             {% endif %}
                                         </p>

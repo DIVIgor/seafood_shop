@@ -1,4 +1,4 @@
-{% load static snippet_tags wagtailcore_tags wagtailuserbar %}
+{% load static snippet_tags wagtailcore_tags wagtailuserbar wagtailimages_tags %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,11 +10,15 @@
             {% endblock %}
             {% block title_suffix %}
             {% wagtail_site as current_site %}
-            {% if current_site and current_site.site_name %}- {{ current_site.site_name }}{% endif %}
+            {% if current_site and current_site.site_name %}{{ current_site.site_name }}{% endif %}
             {% endblock %}
         </title>
         <meta name="description" content="{{ self.search_description }}" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        {% favicon as icon %}
+        {% image icon.icon fill-32x32 as ico %}
+        <link rel="icon" type="image/x-icon" href="{{ ico.url }}" />
 
         {# Force all links in the live preview panel to be opened in a new tab #}
         {% if request.in_preview_panel %}
