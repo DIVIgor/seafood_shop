@@ -20,11 +20,13 @@
                                 <span class="section-heading-lower">{{ block.value.lower_heading }}</span>
                             </h2>
                             <p class="mb-3">{{ block.value.text }}</p>
-                            <div class="intro-button mx-auto">
-                                <a class="btn btn-primary btn-xl" href="{{ block.value.button_redirection.url }}">
-                                    {{ block.value.button_text }}
-                                </a>
-                            </div>
+                            {% if block.value.button_text %}
+                                <div class="intro-button mx-auto">
+                                    <a class="btn btn-primary btn-xl" href="{{ block.value.button_redirection.url }}">
+                                        {{ block.value.button_text }}
+                                    </a>
+                                </div>
+                            {% endif %}
                         </div>
                     {% endif %}
                 {% endfor %}
