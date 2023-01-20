@@ -11289,7 +11289,6 @@ textarea.form-control-lg {
   }
 }
 body {
-  /* background-image: linear-gradient(rgba(15, 47, 43, 0.65), rgba(15, 20, 47, 0.65)), url("../assets/img/bg.jpg"); */
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
