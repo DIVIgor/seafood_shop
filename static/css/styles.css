@@ -11339,6 +11339,36 @@ p {
   font-weight: 100;
 }
 
+@media
+(max-width: 360px) {
+  .section-heading .section-heading-lower {
+    font-size: 0.7rem;
+  }
+  .p-5 {
+    padding: 0.5rem !important;
+  }
+}
+
+@media
+(max-width: 700px){
+  .section-heading .section-heading-lower {
+    font-size: 1.4rem;
+  }
+  .p-5 {
+    padding: 1rem !important;
+  }
+}
+
+@media
+(max-width: 1300px) {
+  .section-heading .section-heading-lower {
+    font-size: 2rem;
+  }
+  .p-5 {
+    padding: 2rem !important;
+  }
+}
+
 .bg-faded {
   background-color: #b5d2ff;
 }

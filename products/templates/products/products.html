@@ -25,7 +25,7 @@
                     {% image block.value.image original class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" %}
                     <div class="product-item-description d-flex {% cycle 'me-auto' 'ms-auto' %}">
                         <div class="bg-faded p-5 rounded">
-                            <p class="mb-0">{{ block.value.text }}</p>
+                            <p class="mb-0">{{ block.value.text|linebreaksbr }}</p>
                         </div>
                     </div>
                 </div>
