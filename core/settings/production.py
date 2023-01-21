@@ -1,8 +1,16 @@
+from decouple import config
+
 from .base import *
+
+
+SECRET_KEY = config('SECRET_KEY')
 
 DEBUG = False
 
-try:
-    from .local import *
-except ImportError:
-    pass
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+MIDDLEWARE.append("whitenoise.middleware.WhiteNoiseMiddleware")
+
+ALLOWED_HOSTS = ['*']
+
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
