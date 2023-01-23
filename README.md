@@ -22,7 +22,7 @@ https://pycaramba.pythonanywhere.com/
 - Python 3.10
 - Django 4.1
 - Wagtail 4.1
-- Witenoise 6.3
+- Whitenoise 6.3
 - HTML 5
 - CSS 3
 - Bootstrap themes
