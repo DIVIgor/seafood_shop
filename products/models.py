@@ -1,6 +1,6 @@
 from wagtail.models import Page
 from wagtail.fields import StreamField
-from wagtail.admin.panels import StreamFieldPanel
+from wagtail.admin.panels import FieldPanel
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail import blocks
 
@@ -16,8 +16,8 @@ class Products(Page):
             ('lower_heading', blocks.CharBlock()),
             ('text', blocks.TextBlock()),
         ], icon='image'))
-    ], blank=True)
+    ], blank=True, use_json_field=True)
 
     content_panels = Page.content_panels + [
-        StreamFieldPanel('product'),
+        FieldPanel('product'),
     ]

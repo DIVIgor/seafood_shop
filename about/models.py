@@ -1,6 +1,6 @@
 from wagtail.models import Page
 from wagtail.fields import StreamField
-from wagtail.admin.panels import StreamFieldPanel
+from wagtail.admin.panels import FieldPanel
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail import blocks
 
@@ -18,8 +18,8 @@ class About(Page):
                 features=['bold', 'italic', 'ol', 'ul'],
             )),
         ], icon='clipboard-list')),
-    ], block_counts={'info': {'max_num': 1},}, blank=True)
+    ], block_counts={'info': {'max_num': 1}}, blank=True, use_json_field=True)
 
     content_panels = Page.content_panels + [
-        StreamFieldPanel('info'),
+        FieldPanel('info'),
     ]

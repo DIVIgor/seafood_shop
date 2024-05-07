@@ -1,4 +1,4 @@
-{% load menu_tags %}
+{% comment %} {% load menu_tags %}
 
 <ul class="navbar-nav mx-auto">
     {% for item in menu_items %}
@@ -6,4 +6,4 @@
             <a class="nav-link text-uppercase" href="{{ item.href }}">{{ item.text }}</a>
         </li>
     {% endfor %}
-</ul>
+</ul> {% endcomment %}

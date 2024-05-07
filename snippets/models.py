@@ -1,7 +1,6 @@
 from django.db import models
 
 from wagtail.admin.panels import FieldPanel, PageChooserPanel
-from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.snippets.models import register_snippet
 
 
@@ -19,7 +18,7 @@ class BackgroundImage(models.Model):
         verbose_name_plural = 'background image'
 
     panels = [
-        ImageChooserPanel('image'),
+        FieldPanel('image'),
     ]
 
     def __str__(self):
@@ -27,17 +26,17 @@ class BackgroundImage(models.Model):
 
 
 @register_snippet
-class Header(models.Model):
-    upper_header = models.CharField(max_length=255, blank=True)
-    lower_header = models.CharField(max_length=255, blank=True)
+class Heading(models.Model):
+    upper_heading = models.CharField(max_length=255, blank=True)
+    lower_heading = models.CharField(max_length=255, blank=True)
 
     panels = [
-        FieldPanel('upper_header'),
-        FieldPanel('lower_header'),
+        FieldPanel('upper_heading'),
+        FieldPanel('lower_heading')
     ]
 
     def __str__(self):
-        return f'Upper header: {self.upper_header} / Lower header: {self.lower_header}'
+        return f'{self.upper_heading} / {self.lower_heading}'
 
 
 @register_snippet
@@ -50,7 +49,7 @@ class NavbarTitle(models.Model):
 
     panels = [
         FieldPanel('title'),
-        PageChooserPanel('url'),
+        PageChooserPanel('url')
     ]
 
     def __str__(self):
@@ -65,7 +64,7 @@ class Footer(models.Model):
         verbose_name_plural = 'footer'
 
     panels = [
-        FieldPanel('content'),
+        FieldPanel('content')
     ]
 
     def __str__(self):
@@ -86,7 +85,7 @@ class Favicon(models.Model):
         verbose_name_plural = 'favicon'
 
     panels = [
-        ImageChooserPanel('icon'),
+        FieldPanel('icon'),
     ]
 
     def __str__(self):

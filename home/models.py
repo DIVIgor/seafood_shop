@@ -1,6 +1,6 @@
 from wagtail.models import Page
 from wagtail.fields import StreamField
-from wagtail.admin.panels import StreamFieldPanel
+from wagtail.admin.panels import FieldPanel
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail import blocks
 
@@ -19,7 +19,7 @@ class HomePage(Page):
         ], icon='home')),
     ], block_counts={
         'intro': {'max_num': 1},
-    }, blank=True)
+    }, blank=True, use_json_field=True)
 
     message = StreamField([
         ('message', blocks.StructBlock([
@@ -31,11 +31,10 @@ class HomePage(Page):
                 ]
             )),
         ], icon='comment'))
-    ], block_counts={
-    'message': {'max_num': 1},
-    }, blank=True)
+    ], block_counts={'message': {'max_num': 1}}, blank=True,
+        use_json_field=True)
 
     content_panels = Page.content_panels + [
-        StreamFieldPanel('intro'),
-        StreamFieldPanel('message'),
+        FieldPanel('intro'),
+        FieldPanel('message'),
     ]

@@ -1,5 +1,5 @@
 # The Seafood Shop - a catalog app
-This is a catalog app with a content management system based on Wagtail and Django.
+This is a catalog app with content management system based on Wagtail and Django.
 
 ## Table of contents
 - [Table of contents](#table-of-contents)
@@ -10,10 +10,10 @@ This is a catalog app with a content management system based on Wagtail and Djan
 - [Illustrations](#illustrations)
 
 ## Introduction
-My friend asked me if I could create a simple catalog app with WordPress. I haven't ever worked with WordPress. So I wondered if there exists a Python framework or module that could give the same or even better functionality.
+My friend asked me if I could create a simple catalog app with something like WordPress for him. I haven't ever worked with WordPress. So I wondered if there exists a Python framework or module that could give the same or even better functionality.
 And I've found two Django-based modules: Django CMS and Wagtail. After testing both, I've chosen Wagtail as the perfect one. So this app has been created to try the module's functionality. And I really like the result.
 
-So, let me introduce **The Seafood Shop** — a site catalog with a content management system.
+So, let me introduce **The Seafood Shop** — a site catalog with content management system.
 
 ## Web page
 https://pycaramba.pythonanywhere.com/
@@ -25,7 +25,7 @@ https://pycaramba.pythonanywhere.com/
 - Whitenoise 6.3
 - HTML 5
 - CSS 3
-- Bootstrap themes
+- Bootstrap
 
 ## Features
 For non-staff users, it's a simple site catalog with several addresses: Home, Products, About, and Contacts.

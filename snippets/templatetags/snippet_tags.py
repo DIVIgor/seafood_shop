@@ -1,9 +1,14 @@
 from django import template
 
-from snippets.models import Footer, Header, NavbarTitle, BackgroundImage, Favicon
+from wagtail.models import Site
+
+from snippets.models import (
+    Footer, Heading, NavbarTitle, BackgroundImage, Favicon
+)
 
 
 register = template.Library()
+
 
 @register.inclusion_tag('snippets/bg_image.html', takes_context=True)
 def bg_image(context):
@@ -12,12 +17,14 @@ def bg_image(context):
         'request': context['request'],
     }
 
-@register.inclusion_tag('snippets/header.html', takes_context=True)
-def header(context):
+
+@register.inclusion_tag('snippets/heading.html', takes_context=True)
+def heading(context):
     return {
-        'header': Header.objects.first(),
+        'heading': Heading.objects.first(),
         'request': context['request'],
     }
+
 
 @register.inclusion_tag('snippets/navbar.html', takes_context=True)
 def navbar(context):
@@ -26,12 +33,19 @@ def navbar(context):
         'request': context['request'],
     }
 
-@register.inclusion_tag('snippets/footer.html', takes_context=True)
-def footer(context):
+
+@register.simple_tag(takes_context=True)
+def get_site_root(context):
+    return Site.find_for_request(context["request"]).root_page
+
+
+@register.inclusion_tag('snippets/footer_text.html', takes_context=True)
+def get_footer_text(context):
     return {
-        'footer': Footer.objects.all(),
+        'footer_text': Footer.objects.all(),
         'request': context['request'],
     }
+
 
 @register.simple_tag()
 def favicon():

@@ -4,6 +4,7 @@
 {% block body_class %}{% endblock %}
 
 {% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
 {% endblock extra_css %}
 
 {% block content %}
@@ -22,7 +23,7 @@
                             <p class="mb-3">{{ block.value.text }}</p>
                             {% if block.value.button_text %}
                                 <div class="intro-button mx-auto">
-                                    <a class="btn btn-primary btn-xl" href="{{ block.value.button_redirection.url }}">
+                                    <a class="btn btn-primary btn-xl" href="{% firstof block.value.button_redirection.url '#' %}">
                                         {{ block.value.button_text }}
                                     </a>
                                 </div>
