@@ -1,5 +1,10 @@
-{% for element in footer_text %}
-    <div class="container">
-        <p class="m-0 small">{{ element.content }}</p>
+{% if footer_text %}
+    {% comment %} {{footer_text}} {% endcomment %}
+    <div class="">{% comment %} TODO: choose styling {% endcomment %}
+        {% for block in footer_text %} {% comment %} TODO: add localization without adding .loclized method {% endcomment %}
+            <div class="container">
+                <p class="m-0 small">{{ block.value }}</p>
+            </div>
+        {% endfor %}
     </div>
-{% endfor %}
+{% endif %}

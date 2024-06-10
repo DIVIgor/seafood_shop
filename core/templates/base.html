@@ -16,22 +16,16 @@
         <meta name="description" content="{{ self.search_description }}" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        {% favicon as icon %}
-        {% image icon.icon fill-32x32 as ico %}
-        <link rel="icon" type="image/x-icon" href="{{ ico.url }}" />
+        {% get_favicon as icon %}
+        {% if icon %}
+            {% image icon fill-32x32 as favicon %}
+            <link rel="icon" type="image/x-icon" href="{{ favicon.url }}" />
+        {% endif %}
 
         {# Force all links in the live preview panel to be opened in a new tab #}
         {% if request.in_preview_panel %}
-        <base target="_blank">
+            <base target="_blank">
         {% endif %}
-
-        {# Global stylesheets #}
-        <link rel="stylesheet" type="text/css" href="{% static 'css/core.css' %}">
-
-        {% block extra_css %}
-        {# Override this in templates to add extra stylesheets #}
-            <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
-        {% endblock %}
 
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
@@ -39,10 +33,10 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
+        <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
     </head>
 
-    <body {% bg_image %} class="{% block body_class %}{% endblock body_class %}">
+    <body {% get_bg_image %}>
         {% include "includes/header.html" %}
 
         {% block content %}{% endblock content %}

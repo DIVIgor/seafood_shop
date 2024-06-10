@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 # Application definition
 
 INSTALLED_APPS = [
-    'wagtail.contrib.styleguide',
+    "wagtail.contrib.styleguide",
     "about",
     "contacts",
     "home",
@@ -32,7 +32,10 @@ INSTALLED_APPS = [
     "search",
     "snippets",
 
-    'wagtail.contrib.modeladmin',
+    "wagtail_localize",
+    "wagtail_localize.locales",
+
+    "wagtail.contrib.modeladmin",
     "wagtail.contrib.forms",
     "wagtail.contrib.redirects",
     "wagtail.embeds",
@@ -62,6 +65,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "django.middleware.security.SecurityMiddleware",
+    "django.middleware.locale.LocaleMiddleware",
     "wagtail.contrib.redirects.middleware.RedirectMiddleware",
 ]
 
@@ -80,6 +84,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                'django.template.context_processors.i18n',
             ],
         },
     },
@@ -127,9 +132,16 @@ TIME_ZONE = "Europe/Kiev"
 
 USE_I18N = True
 
+WAGTAIL_I18N_ENABLED = True
+
 USE_L10N = True
 
 USE_TZ = True
+
+WAGTAIL_CONTENT_LANGUAGES = LANGUAGES = [
+    ("en", "English"),
+    ("uk", "Ukrainian"),
+]
 
 
 # Static files (CSS, JavaScript, Images)

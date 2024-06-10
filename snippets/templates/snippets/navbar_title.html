@@ -1,0 +1,8 @@
+{% load wagtailcore_tags %}
+<div>
+    {% if navbar_title %}
+        <a class="navbar-brand text-uppercase fw-bold d-lg-none" href="{% if navbar_title.navurl %}{% pageurl navbar_title.navurl %}{% endif %}">
+            {{ navbar_title.navtitle }}
+        </a>
+    {% endif %}
+</div>
