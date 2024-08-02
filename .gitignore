@@ -8,6 +8,8 @@ migrations/
 *.pot
 *.pyc
 *.env
+*.env.prod
+*.env.production
 *.sqlite3
 *.bak
 media
