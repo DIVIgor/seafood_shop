@@ -14,7 +14,7 @@ class Products(Page):
             ('image', ImageChooserBlock()),
             ('upper_heading', blocks.CharBlock(required=False)),
             ('lower_heading', blocks.CharBlock()),
-            ('text', blocks.TextBlock()),
+            ('text', blocks.RichTextBlock()),
         ], icon='image'))
     ], blank=True, use_json_field=True)
 
