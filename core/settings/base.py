@@ -181,9 +181,18 @@ WAGTAILSEARCH_BACKENDS = {
     }
 }
 
-# Base URL to use when referring to full URLs within the Wagtail admin backend -
+# Base URL to use when referring to full URLs within the Wagtail admin backend
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 WAGTAILADMIN_BASE_URL = "http://example.com"
 
 # Fix auto-created primary key issue
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+
+# Image conversion
+# NOTE By default, all avif, bmp and webp images are converted to the png
+# format when no image output format is given.
+WAGTAILIMAGES_FORMAT_CONVERSIONS = {
+    'avif': 'webp',
+    'bmp': 'webp',
+    'webp': 'webp',
+}

@@ -14,7 +14,7 @@
             <div class="intro">
                 {% for block in page.intro %}
                     {% if block.block_type == 'intro' %}
-                        {% image block.value.image original class="intro-img img-fluid mb-3 mb-lg-0 rounded" %}
+                        {% image block.value.image width-900 class="intro-img img-fluid mb-3 mb-lg-0 rounded" %}
                         <div class="intro-text left-0 text-center bg-faded p-5 rounded">
                             <h2 class="section-heading mb-4">
                                 <span class="section-heading-upper">{{ block.value.upper_heading }}</span>

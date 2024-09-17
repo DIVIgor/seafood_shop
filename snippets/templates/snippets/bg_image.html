@@ -1,7 +1,7 @@
 {% load wagtailimages_tags %}
 style=
 {% if bg_image %}
-    {% image bg_image original as bg_image %}
+    {% image bg_image width-1920 as bg_image %}
     "background-image: linear-gradient(rgba(15, 40, 47, 0.65), rgba(15, 20, 47, 0.65)), url('{{ bg_image.url }}');"
 {% else %}
     "background: linear-gradient(rgb(39 109 129 / 89%), rgb(38 50 118 / 89%));"
